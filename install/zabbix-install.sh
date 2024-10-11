@@ -20,11 +20,11 @@ $STD apt-get install -y mc
 msg_ok "Installed Dependencies"
 
 msg_info "Installing Zabbix"
-wget -q https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_7.0-1+debian12_all.deb
-$STD dpkg -i zabbix-release_7.0-1+debian12_all.deb
+wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-2+ubuntu24.04_all.deb
+$STD dpkg -i zabbix-release_7.0-2+ubuntu24.04_all.deb
 rm zabbix-release_7.0-1+debian12_all.deb
 $STD apt-get update
-$STD apt-get install -y zabbix-server-pgsql zabbix-frontend-php php8.2-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+$STD apt-get install -y zabbix-server-pgsql zabbix-frontend-php php8.3-pgsql zabbix-nginx-conf zabbix-sql-scripts zabbix-agent
 msg_ok "Installed Zabbix"
 
 msg_info "Setting up PostgreSQL"
