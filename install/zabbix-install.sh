@@ -50,8 +50,11 @@ echo -e "zabbix Database Name: \e[32m$DB_NAME\e[0m" >>~/zabbix.creds
 msg_ok "Set up PostgreSQL"
 
 msg_info "Starting Services"
-systemctl restart zabbix-server zabbix-agent apache2
-systemctl enable -q zabbix-server zabbix-agent apache2
+sed -i 's/^#        listen          8080;.*/        listen          8080;/' /etc/zabbix/nginx.conf
+sed -i 's/^#        server_name     example.com;.*/        server_name     lan;/' /etc/zabbix/nginx.conf
+
+systemctl restart zabbix-server zabbix-agent nginx php8.3-fpm
+systemctl enable zabbix-server zabbix-agent nginx php8.3-fpm
 msg_ok "Started Services"
 
 motd_ssh
