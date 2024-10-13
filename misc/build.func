@@ -541,14 +541,12 @@ build_container() {
   else
     export FUNCTIONS_FILE_PATH="$(curl -s https://raw.githubusercontent.com/adilTepe/Proxmox/main/misc/install.func)"
   fi
-  export APT_CACHER_IP = "10.10.10.2"
-  export APT_CACHER = "${APT_CACHER_IP:+yes}"
-  export timezone = "Europe/Berlin"
-  export DISABLEIP6 = "yes"
-  export var_os="ubuntu"
-  export var_version="noble"
-
-
+  export APT_CACHER_IP="$(10.10.10.2)"
+  export APT_CACHER="${APT_CACHER_IP:+yes}"
+  export timezone="$(Europe/Berlin)"
+  export DISABLEIP6="$(yes)"
+  export var_os="$(ubuntu)"
+  export var_version="$(noble)"
 
   export CACHER="$APT_CACHER"
   export CACHER_IP="$APT_CACHER_IP"
