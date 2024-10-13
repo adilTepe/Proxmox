@@ -51,7 +51,7 @@ msg_ok "Set up PostgreSQL"
 
 msg_info "Starting Services"
 sed -i 's/^#        listen          8080;.*/        listen          8080;/' /etc/zabbix/nginx.conf
-sed -i 's/^#        server_name     example.com;.*/        server_name     lan;/' /etc/zabbix/nginx.conf
+sed -i 's/^#        server_name     example.com;.*/        server_name     zabbix.lan;/' /etc/zabbix/nginx.conf
 
 systemctl restart zabbix-server zabbix-agent nginx php8.3-fpm
 systemctl enable zabbix-server zabbix-agent nginx php8.3-fpm
